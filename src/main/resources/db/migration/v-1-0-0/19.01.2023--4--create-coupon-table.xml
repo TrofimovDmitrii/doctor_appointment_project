@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
+            http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
+    <changeSet id="0.1.6" author="DmitriiTrofimov">
+        <tagDatabase tag="CT coupon"/>
+    </changeSet>
+
+    <changeSet id="0.1.7" author="DmitriiTrofimov">
+
+        <createTable tableName="coupon">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="doctor_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="patient_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="appointment_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="coupon"
+                                 baseColumnNames="doctor_id"
+                                 constraintName="coupon_doctor_id_fk"
+                                 referencedTableName="doctor"
+                                 referencedColumnNames="id"
+                                 onDelete="NO ACTION"
+                                 onUpdate="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="coupon"
+                                 baseColumnNames="patient_id"
+                                 constraintName="coupon_patient_id_fk"
+                                 referencedTableName="patient"
+                                 referencedColumnNames="id"
+                                 onDelete="NO ACTION"
+                                 onUpdate="CASCADE"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd
+                http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.2.xsd">
+
+    <changeSet id="0.1.8" author="DmitriiTrofimov">
+        <tagDatabase tag="changelog 0.0.0"/>
+    </changeSet>
+
+    <include file="db/migration/v-1-0-0/19.01.2023--1--create-specialization-table.xml"/>
+    <include file="db/migration/v-1-0-0/19.01.2023--2--create-doctor-table.xml"/>
+    <include file="db/migration/v-1-0-0/19.01.2023--3--create-patient-table.xml"/>
+    <include file="db/migration/v-1-0-0/19.01.2023--4--create-coupon-table.xml"/>
+
+</databaseChangeLog>
