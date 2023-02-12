@@ -30,5 +30,7 @@ public class WSConfig {
 		endpoint.publish("/scheduleService");
 
 		return endpoint;
+		
+		/*123*/
 	}
 }
